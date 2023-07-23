@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+
+const HomePage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Here you'd typically do something with the searchTerm
+    // Like redirecting to a search results page
+    alert(`Searching for: ${searchTerm}`);
+  };
+
+  const handleAccountAccess = () => {
+    // Here you might check if the user is logged in
+    // And if they are, redirect to the account page
+    // If not, perhaps redirect to a login page
+    alert('Accessing account...');
+  };
+
+  return (
+    <div className="home">
+      <h1>Welcome to Our Website!</h1>
+      <form onSubmit={handleSearchSubmit}>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+      <button onClick={handleAccountAccess}>My Account</button>
+    </div>
+  );
+};
+
+export default HomePage;
